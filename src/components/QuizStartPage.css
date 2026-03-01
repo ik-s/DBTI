@@ -1,0 +1,103 @@
+.quiz-start-container {
+  /* 배경 이미지 적용 및 화면 꽉 차게 설정 */
+  background-image: url('../assets/background.png');
+  background-size: cover;
+  /* 이렇게 하면 화면에 맞게 이미지가 확대/축소됨.  */
+  /* background-size: contain;
+  /* 이렇게 하면 이미지가 잘리지 않고 화면에 꽉 차게 표시됨. */
+  /* background-size: 100%; */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-title-image {
+  /* 상단 타이틀 이미지 스타일 */
+  width: 70%;
+  /* max-width: 600px; */
+  /* 최대 너비 제한 */
+
+  /* 반응형을 위해 px 대신 화면 너비 비례 단위(vw) 사용 */
+  /* 계산식: (피그마 기준 너비 1440px일 때 80px) -> 80 / 14.4 = 5.55vw */
+  margin-top: -5.55vw;
+  /* margin-bottom: 40px; */
+  animation: float 3s ease-in-out infinite;
+  /* 둥둥 떠다니는 애니메이션 효과 */
+}
+
+.quiz-start-button {
+  /* 시작 버튼 베이스 (Figma Node 3:6) */
+  background: linear-gradient(to bottom, rgba(252, 251, 252, 0.8), rgba(167, 211, 251, 0.8));
+  /* 반응형 UI: 모니터(데스크톱)나 맥북 등 가로 해상도가 달라도 동일한 비율 유지 용도 
+     계산식: (해당 픽셀 / Figma Width 1440px) * 100 
+            ex) 24px -> 24 / 1440 * 100 = 1.666vw 
+  */
+  border-radius: 1.66vw;
+  /* 기존 24px */
+  border: none;
+  /* 버튼 내부 여백 */
+  /* 세로 15px -> 1.04vw, 가로 240px -> 16.66vw */
+  padding: 1.04vw 9.66vw;
+
+  /* 텍스트 스타일 (Figma Node 3:7) */
+  font-family: 'Pretendard', sans-serif;
+  font-weight: bold;
+
+  /* 텍스트 사이즈: 36px -> 2.5vw */
+  font-size: 2.5vw;
+  color: white;
+  line-height: normal;
+
+  /* 텍스트 테두리: 1px 정도의 미세한 값은 px 유지 권장 (해상도에 따라 깨질 수 있음) */
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1.5px;
+
+  cursor: pointer;
+
+  /* Box Shadow: 가로 0, 세로 8px -> 0.55vw, 흐림 15px -> 1.04vw */
+  box-shadow: 0 0.55vw 1.04vw rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(1px);
+  /* 글래스모피즘 느낌 추가 */
+
+  position: absolute;
+  bottom: 27%;
+}
+
+.quiz-start-button:hover {
+  /* 시작 버튼 오버 효과 
+     translateY(-3px) -> -0.2vw
+     box-shadow 0 12px 20px -> 0 0.83vw 1.38vw
+  */
+  transform: translateY(-0.2vw);
+  box-shadow: 0 0.83vw 1.38vw rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(180, 220, 255, 0.9));
+}
+
+.quiz-start-button:active {
+  /* 시작 버튼 클릭 효과 : 1px -> 0.07vw*/
+  transform: translateY(0.07vw);
+  box-shadow: 0 0.27vw 0.55vw rgba(0, 0, 0, 0.1);
+}
+
+/* 무한 반복되는 떠다니는 애니메이션 */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
