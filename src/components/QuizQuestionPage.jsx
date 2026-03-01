@@ -105,7 +105,7 @@ const QUESTIONS = [
 ];
 
 // 퀴즈 질문 페이지 컴포넌트
-export default function QuizQuestionPage({ onAnswer }) {
+export default function QuizQuestionPage({ onAnswer, onFinish }) {
   // 현재 몇 번째 질문인지 추적하는 상태값 (배열 0번 인덱스부터 시작)
   const [currentIdx, setCurrentIdx] = useState(0);
 
@@ -114,17 +114,18 @@ export default function QuizQuestionPage({ onAnswer }) {
 
   // 답변 버튼 클릭 핸들러
   const handleAnswer = (answerIdx) => {
-    // 1. 부모(App.jsx) 로 임시로 데이터를 보냄
+    // 1. 부모(App.jsx) 로 데이터 보냄
     if (onAnswer) {
       onAnswer(answerIdx);
     }
     
-    // 2. 숫자를 1씩 늘려 다음 질문으로 화면 업데이트
+    // 2. 숫자를 1씩 늘려 다음 질문으로 화면 업데이트. 만약 마지막이면 결과 화면으로!
     if (currentIdx < QUESTIONS.length - 1) {
       setCurrentIdx(currentIdx + 1);
     } else {
-      // 마지막 질문일 경우 이곳에서 결과 페이지로 넘어가게 처리할 수 있습니다.
-      alert('준비된 질문이 끝났습니다! 나중에 결과 페이지 연결 로직을 추가하세요.');
+      if (onFinish) {
+        onFinish();
+      }
     }
   };
 

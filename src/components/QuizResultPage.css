@@ -1,0 +1,77 @@
+.quiz-result-container {
+    /* 배경 이미지 적용 (시작 화면과 동일) */
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-result-subtitle {
+    /* "당신에게 찰떡인 직업은..." 텍스트 스타일 */
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    font-size: 2.29vw;
+    /* 33px */
+    color: white;
+    /* 타이틀 이미지 아래에 오도록 margin-top 조정 */
+    margin-top: 0;
+    margin-bottom: 0.5vw;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1.5px;
+}
+
+.quiz-result-title {
+    /* 직업명 텍스트 (ex: 스마트 컨트랙트 개발자) */
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    font-size: 5.5vw;
+    /* 약 79px -> 79.286 / 14.4 = 5.5vw */
+    line-height: 7.7vw;
+    /* 111px -> 111 / 14.4 = 7.7vw */
+    color: white;
+    margin-top: 0;
+    margin-bottom: -2vw;
+    text-align: center;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 2px;
+    /* 폰트가 크므로 테두리를 조금 더 두껍게 */
+}
+
+.quiz-result-image {
+    /* 캐릭터 이미지 애니메이션 및 배치 (1024x1536 세로형 이미지 기준) */
+    width: 14.72vw;
+    /* 피그마 500px -> 500/1440 * 100 = 34.72vw */
+    margin-bottom: 0;
+}
+
+/* 스마트 컨트랙트 개발자 이미지(정사각형 1024x1024) 전용 스타일 */
+.quiz-result-image-contract {
+    width: 21vw;
+    /* 정사각형이므로 시각적 균형을 위해 너비를 더 넓게 조정 */
+    margin-bottom: 1vw;
+}
+
+/* quiz-start-button 공통 양식 활용한 처음으로 돌아가기 버튼 조정 */
+.quiz-restart-button {
+    width: 46.32vw;
+    /* 667px */
+    padding: 1.5vw 0;
+    font-size: 2.08vw !important;
+    /* 30px */
+    color: #002c54 !important;
+    -webkit-text-stroke-width: 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative !important;
+    margin-top: -2vw;
+    /* 간격 확보 */
+    bottom: auto !important;
+}
