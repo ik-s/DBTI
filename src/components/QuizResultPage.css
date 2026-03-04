@@ -75,3 +75,36 @@
     /* 간격 확보 */
     bottom: auto !important;
 }
+
+/* --- 로딩 화면 관련 스타일 --- */
+.loading-container {
+    justify-content: center;
+    /* 수직 중앙 정렬 (flex-direction: column이므로 주축이 세로) */
+}
+
+.loading-text {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    font-size: 4vw;
+    /* 화면 크기에 맞게 적절한 크기 */
+    color: white;
+    text-align: center;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1.5px;
+    animation: blink 1.5s infinite ease-in-out;
+}
+
+/* "검사 결과 확인 중 ..." 애니메이션 */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
